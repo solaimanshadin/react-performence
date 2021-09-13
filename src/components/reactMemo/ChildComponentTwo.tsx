@@ -13,4 +13,4 @@ const ChildComponentTwo = () => {
     );
 };
 
-export default React.memo(ChildComponentTwo);
+export default ChildComponentTwo;
