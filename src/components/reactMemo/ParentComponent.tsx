@@ -1,4 +1,4 @@
-import React, { MutableRefObject, useRef, useState } from "react";
+import React, { MutableRefObject, useRef, useState, useCallback } from "react";
 import { InputGroup } from "react-bootstrap";
 import ChildComponentOne from "./ChildComponentOne";
 import ChildComponentTwo from "./ChildComponentTwo";
@@ -7,10 +7,13 @@ const ParentComponent = () => {
   const [count, setCount] = useState<number>(0);
   const [inputValue, setInputValue] = useState<number>(0)
 
-  const incrementCount = () => {
+  
+  const incrementCount = useCallback( () => {
     console.log("Incrementing count...");
     setCount(count + 1);
-  };
+  }, [count]);
+
+  
 
   const decrementCount = () => {
     console.log("Decrementing count...");
@@ -45,9 +48,9 @@ const ParentComponent = () => {
       </div>
 
       <hr />
-      <ChildComponentOne />
+      <ChildComponentOne  count={count} />
       <hr />
-      <ChildComponentTwo />
+      <ChildComponentTwo incrementCount={incrementCount} />
     </div>
   );
 };

@@ -12,7 +12,7 @@ const Navbar = () => {
           </Nav.Link>
         </Nav.Item>
         <Nav.Item>
-          <Nav.Link href="/memoization">Memoization</Nav.Link>
+          <Nav.Link as={Link} to="/memoization">Memoization</Nav.Link>
         </Nav.Item>
       </Nav>
     </div>

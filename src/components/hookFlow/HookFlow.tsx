@@ -1,10 +1,15 @@
 import React, { useEffect, useState } from "react";
 
 const HookFlow = () => {
-  const [colorMode, setColorMode] = useState<string>(localStorage.getItem('colorMode') || 'dark');
+  const [colorMode, setColorMode] = useState<string>(() => localStorage.getItem('colorMode') || 'dark');
 
   useEffect(() => {
     localStorage.setItem("colorMode", colorMode )
+
+    return () => {
+        console.log("Hello Updating");
+        // alert("TaTa!")
+    }
   }, [colorMode])
 
   return (

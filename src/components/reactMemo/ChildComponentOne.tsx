@@ -1,12 +1,12 @@
 import React from 'react';
 
-const ChildComponentOne = () => {
+const ChildComponentOne = ({count}: {count: number}) => {
     console.log("Rendering ChildComponentOne");
     return (
         <div className="p-5">
-            <p>Hello, from childComponentOne</p>
+            <p>Count {count}, from childComponentOne</p>
         </div>
     );
 };
 
-export default ChildComponentOne;
+export default React.memo(ChildComponentOne);
